@@ -1,12 +1,12 @@
-// import axios from 'axios'
-// export function sendExternalIdForFood(result) {
-//   	console.log("Result food: ",result);
+import axios from 'axios'
+export function sendExternalIdForFood(result) {
+  	console.log("Result food: ",result);
 
-//   	let foodTotal = 
+  	let foodTotal = result;
   	
-//   return {
-//     type: 'TOP_BEERS',
-//     payload: foodTotal
-//   };
-// }
+  return {
+    type: 'TOP_FOODS',
+    payload: foodTotal
+  };
+}
 
