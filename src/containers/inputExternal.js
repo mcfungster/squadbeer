@@ -31,6 +31,7 @@ class Form extends Component {
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.handleFoodSubmit = this.handleFoodSubmit.bind(this);
   this.onInputChange = this.onInputChange.bind(this);
 
 }
@@ -55,10 +56,6 @@ onFoodChange(event, state) {
 handleSubmit (event) {
   event.preventDefault();
 
-  if(this.state.input === '') {
-    this.props.sendExternalIdForFood(this.state.foodInput)
-  }
-
   let result = this.state.input;
   axios.post('/api/externalId',{result:result})
        .then(res => {
@@ -66,6 +63,18 @@ handleSubmit (event) {
        })
    
 }
+
+
+handleFoodSubmit (event) {
+  event.preventDefault();
+  console.log("HEY")
+   let result = this.state.foodInput;
+     axios.post('/api/mostFoods',{result:result})
+       .then(res => {
+        console.log("RES",res)
+         this.props.sendExternalIdForFood(res)
+       })
+  }
 
 render() {
  return (
@@ -78,9 +87,10 @@ render() {
       value={this.state.input}
       onChange={(event) => this.onInputChange(event, this.state)}
     /><br />
+    <button type="submit">submit</button>
   </form>
 
-  <form onSubmit={this.handleSubmit}>
+  <form onSubmit={this.handleFoodSubmit}>
     <TextField
       floatingLabelText="Bar's Best Selling Food"
       floatingLabelStyle={styles.floatingLabelStyle}
@@ -88,6 +98,7 @@ render() {
       value={this.state.foodInput}
       onChange={(event) => this.onFoodChange(event, this.state)}
     /><br />
+    <button type="submit">submit</button>
   </form>
   </div>
 );

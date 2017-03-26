@@ -14,9 +14,6 @@ import MenuItem from 'material-ui/MenuItem';
 const App = () => {
   return (
     <div>
-
-    <MenuItem containerElement={<Link to="/"/>}>Home</MenuItem>
-    <MenuItem containerElement={<Link to="/BarTypeChart"/>}>Bar Type</MenuItem>
       <BarTypeChart />
    		<Form />
    		<BarSpecificChart />

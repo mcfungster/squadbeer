@@ -50,7 +50,7 @@ mapDataSet(state) {
 
 } else {
    
-
+console.log("THE FOODERS:", this.props.topFoods)
   const dataSet = {
   labels: ["."],
   datasets: [
@@ -68,13 +68,13 @@ mapDataSet(state) {
 };
 
 
-  state.foodTotals.map(food => {
-     dataSet.datasets[0].data.push(food.count)
+  state.count.map(count => {
+     dataSet.datasets[0].data.push(count)
   })
 
-  state.foodTotals.map(food => {
+  state.name.map(food => {
     
-    dataSet.labels.push(food.name)
+    dataSet.labels.push(food)
 
   })
   console.log("WHAT food",dataSet)
@@ -102,8 +102,9 @@ mapDataSet(state) {
 
 function mapStateToProps(state) {
   console.log("STATE",state.topBeers)
+  console.log("OTHER FOOD", state.topFoods)
   return {
-    topBeers: state.topBeers
+    topBeers: state.topBeers, topFoods: state.topFoods
   };
 }
 
