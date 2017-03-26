@@ -6,7 +6,7 @@ import BarSpecificChart from './containers/barSpecificChart.js'
 // import Form from './containers/inputExternal.js'
 import BeerToFood from './containers/BeervsFood';
 import FoodToBeer from './containers/FoodvsBeer';
-import BarTypeChart from './components/barTypeChart';
+import BarTypeChart from './containers/barTypeContainer';
 import BarTypeDropdown from './components/barTypeDropdown';
 import MenuItem from 'material-ui/MenuItem';
 
